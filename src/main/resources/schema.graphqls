@@ -1,0 +1,30 @@
+scalar Object
+scalar DateTime
+scalar URI
+
+
+
+interface LinkInterface {
+  linkName : String
+}
+
+type Link implements LinkInterface{
+    linkName : String
+    id: ID!
+    url: String!
+    description: String
+}
+
+type Query {
+  allLinks: [Link]
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+
+type Mutation {
+  createLink(url: String!, description: String!, linkName : String!): Link
+}
