@@ -8,8 +8,13 @@ interface LinkInterface {
   linkName : String
 }
 
-type Link implements LinkInterface{
+interface SecondInterface {
+	aliasName : String
+}
+
+type Link implements LinkInterface, SecondInterface {
     linkName : String
+    aliasName : String
     id: ID!
     url: String!
     description: String
@@ -26,5 +31,5 @@ schema {
 
 
 type Mutation {
-  createLink(url: String!, description: String!, linkName : String!): Link
+  createLink(url: String!, description: String!, linkName : String!, aliasName : String!): Link
 }
